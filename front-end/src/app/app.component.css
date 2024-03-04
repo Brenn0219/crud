@@ -1,0 +1,21 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.container {
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+    background: white;
+}
+
+@media (max-width: 700px) {
+    .main {
+      font-size: 10px;
+    }
+}

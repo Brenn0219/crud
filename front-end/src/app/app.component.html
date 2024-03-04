@@ -1,0 +1,9 @@
+<main class="main">
+    <div class="container">
+        <app-include-button (buttonClick)="toggleModalVisibility()"></app-include-button>
+    
+        <app-table></app-table>
+    </div>
+
+    <app-user-form [isModalActive]="isModalActive"></app-user-form>
+</main>
