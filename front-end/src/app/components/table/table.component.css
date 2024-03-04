@@ -1,0 +1,97 @@
+.container-table {
+    padding: 10px;
+    width: auto; 
+    height:inherit; 
+    overflow:auto;
+}
+  
+.container-table::-webkit-scrollbar {
+    width: 12px;
+    background-color: whitesmoke; 
+}
+  
+.container-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: darkgray; 
+}
+
+table {
+    width: 100%;
+    border-spacing: 10px;
+    word-break: break-all;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: whitesmoke;
+}
+
+tr {
+    border-bottom: 1px solid rgb(238, 235, 235)!important;
+}
+
+tbody tr td {
+    vertical-align: text-top;
+    padding: 6px;
+    max-width: 50px;
+}
+
+thead tr th {
+    padding: 5px;
+    text-align: start;
+    margin-bottom: 50px;
+}
+
+tbody tr {
+    margin-bottom: 50px;
+}
+
+thead tr th.acao {
+    width: 100px!important;
+    text-align: center;
+}
+
+tbody tr td.acao {
+    text-align: center;
+}
+
+thead tr th.action {
+    width: 100px!important;
+    text-align: center;
+}
+
+tbody tr td.action {
+    text-align: center;
+}
+
+td button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+td button i {
+    font-size: 25px;    
+}
+
+td button i:first-child {
+    margin-right: 10px;
+}
+
+@media (max-width: 700px) {
+    .main {
+      font-size: 10px;
+    }
+  
+    thead tr th.acao {
+      width: auto!important;
+    }
+    
+    td button i {
+      font-size: 20px!important;
+    }
+  
+    td button i:first-child {
+      margin-right: 0;
+    }
+}
