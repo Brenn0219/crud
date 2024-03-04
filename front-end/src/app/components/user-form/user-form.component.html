@@ -1,0 +1,16 @@
+<div [ngClass]="{ 'modal-container': true, 'active': isModalActive }">
+    <div class="modal">
+        <form>
+            <label for="m-nome">Nome</label>
+            <input id="m-nome" type="text" required />
+
+            <label for="m-email">E-mail</label>
+            <input id="m-email" type="email" required />
+
+            <label for="m-cep">CEP</label>
+            <input id="m-cep" type="number" required />
+            
+            <button id="btnSalvar">Salvar</button>
+        </form>
+    </div>
+</div>
