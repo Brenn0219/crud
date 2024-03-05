@@ -18,12 +18,12 @@
                 <td>{{user.email}}</td>
                 <td>{{user.cep}}</td>
                 <td class="action">
-                    <button>
+                    <button (click)="updateUser(user)">
                         <i class='bx bx-edit'></i>                    
                     </button>
                 </td>
                 <td class="action">
-                    <button>
+                    <button (click)="deleteUser(user.id)">
                         <i class='bx bx-trash'></i>
                     </button>
                 </td>
