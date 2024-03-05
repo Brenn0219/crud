@@ -6,14 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-toggleModal() {
-throw new Error('Method not implemented.');
-}
   title = 'front-end';
-
-  isModalActive: boolean = false;
-
-  toggleModalVisibility() {
-    this.isModalActive = !this.isModalActive;
-  }
 }

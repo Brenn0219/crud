@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../User';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,7 @@ export class TableComponent {
   users: User[] = []
   user!: User
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private sharedService: SharedService) {
     this.getUsers();
   }
 
@@ -19,8 +20,8 @@ export class TableComponent {
     this.userService.getAllUsers().subscribe((users) => (this.users = users));
   }
 
-  updateUser(user: User): void {
-    this.userService.updateUser(user).subscribe();
+  handleUpdateClick(user: User): void {
+    this.sharedService.emitAction('update');
   }
 
   deleteUser(id: number): void {

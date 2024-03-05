@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-include-button',
@@ -6,9 +7,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './include-button.component.css'
 })
 export class IncludeButtonComponent {
-  @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
+  constructor(private sharedService: SharedService) {}
 
-  toggleUserForm() {
-    this.buttonClick.emit();
+  handleCreateClick(): void {
+    this.sharedService.emitAction('create');
   }
 }
