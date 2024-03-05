@@ -17,7 +17,6 @@ export class UserService {
   }
 
   createUser(user: User): Observable<User> {
-    user.id = this.getNextUserId();
     return this.http.post<User>(this.apiUrl, user);
   }
 
@@ -29,9 +28,5 @@ export class UserService {
   deleteUser(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
-  }
-
-  private getNextUserId(): number {
-    return this.userIdCounter++;
   }
 }

@@ -10,8 +10,8 @@ import { User } from '../../User';
 export class UserFormComponent {
   @Input() isModalActive: boolean = false;
   newUser: User = {
-    name: '', email: '', cep: -1,
-    id: -1
+    name: '', email: '', cep: 0,
+    id: 0
   }; 
 
   constructor(private userService: UserService) { }
@@ -22,7 +22,7 @@ export class UserFormComponent {
 
   createUser(): void {
     this.userService.createUser(this.newUser).subscribe(() => {
-      this.newUser = { name: '', email: '', cep: -1, id: -1 };
+      this.newUser = { name: '', email: '', cep: 0, id: 0 };
       this.isModalActive = false;
     });
   }
