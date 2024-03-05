@@ -23,6 +23,15 @@ export class UserFormComponent implements OnInit {
 
   handleAction(action: string): void {
     this.action = action;
+    
+    if (this.action === 'update') {
+      this.sharedService.getUserForUpdate().subscribe(user => {
+        if (user) {
+          this.newUser = user;
+        }
+      });
+    }
+
     this.isModalActive = true;
   }
 

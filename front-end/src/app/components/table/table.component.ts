@@ -21,6 +21,7 @@ export class TableComponent {
   }
 
   handleUpdateClick(user: User): void {
+    this.sharedService.emitUserForUpdate(user);
     this.sharedService.emitAction('update');
   }
 

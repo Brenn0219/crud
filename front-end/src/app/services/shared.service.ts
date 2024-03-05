@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { User } from '../User';
 
 @Injectable({
@@ -7,9 +7,18 @@ import { User } from '../User';
 })
 export class SharedService {
   private actionSubject: Subject<string> = new Subject<string>();
+  private userForUpdateSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   action$ = this.actionSubject.asObservable();
 
   emitAction(action: string): void {
     this.actionSubject.next(action);
+  }
+
+  emitUserForUpdate(user: User): void {
+    this.userForUpdateSubject.next(user);
+  }
+
+  getUserForUpdate(): BehaviorSubject<User | null> {
+    return this.userForUpdateSubject;
   }
 }
