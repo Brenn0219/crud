@@ -46,15 +46,6 @@ tbody tr {
     margin-bottom: 50px;
 }
 
-thead tr th.acao {
-    width: 100px!important;
-    text-align: center;
-}
-
-tbody tr td.acao {
-    text-align: center;
-}
-
 thead tr th.action {
     width: 100px!important;
     text-align: center;

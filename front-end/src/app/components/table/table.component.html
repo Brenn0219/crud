@@ -2,15 +2,32 @@
     <table>
         <thead>
             <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>CEP</th>
-            <th class="action">Editar</th>
-            <th class="action">Excluir</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>CEP</th>
+                <th class="action">Editar</th>
+                <th class="action">Excluir</th>
             </tr>
         </thead>
         
         <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.cep}}</td>
+                <td class="action">
+                    <button>
+                        <i class='bx bx-edit'></i>                    
+                    </button>
+                </td>
+                <td class="action">
+                    <button>
+                        <i class='bx bx-trash'></i>
+                    </button>
+                </td>
+            </tr>
         </tbody>
     </table>
 </section>
