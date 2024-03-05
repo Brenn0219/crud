@@ -14,7 +14,6 @@ throw new Error('Method not implemented.');
   isModalActive: boolean = false;
 
   toggleModalVisibility() {
-    console.log("teste")
     this.isModalActive = !this.isModalActive;
   }
 }

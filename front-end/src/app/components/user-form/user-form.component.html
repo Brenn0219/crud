@@ -2,15 +2,15 @@
     <div class="modal">
         <form>
             <label for="m-nome">Nome</label>
-            <input id="m-nome" type="text" required />
+            <input [(ngModel)]="newUser.name" id="m-nome" name="m-nome" type="text" required/>
 
             <label for="m-email">E-mail</label>
-            <input id="m-email" type="email" required />
+            <input [(ngModel)]="newUser.email" id="m-email" name="m-email" type="email" required/>
 
             <label for="m-cep">CEP</label>
-            <input id="m-cep" type="number" required />
+            <input [(ngModel)]="newUser.cep" id="m-cep" name="m-cep" type="number" required />
             
-            <button id="btnSalvar">Salvar</button>
+            <button id="btnSalvar" (click)="createUser()">Salvar</button>
         </form>
     </div>
 </div>
