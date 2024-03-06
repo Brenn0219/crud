@@ -47,7 +47,17 @@
     border: none;
     background-color: rgb(57, 57, 226);
     color: white;
-    }
+}
+
+.anddress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.anddress div {
+    width: 100%;
+}
 
 .active {
     display: flex; 
