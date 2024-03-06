@@ -1,0 +1,23 @@
+<div class="anddress">
+    <div>
+        <label for="u-cep">CEP</label>
+        <input [(ngModel)]="user.cep" id="u-cep" name="u-cep" type="text" required  (blur)="onCepChanged(user.cep)"/>
+    </div>
+
+    <div>
+        <label for="u-lougradouro">Lougradouro</label>
+        <input [(ngModel)]="user.publicPlace" id="u-lougradouro" name="u-lougradouro" type="text">
+    </div>
+</div>
+
+<div class="anddress">
+    <div>
+        <label for="u-bairro">Bairro</label>
+        <input [(ngModel)]="user.neighborhood" id="u-bairro" name="u-bairro" type="text">
+    </div>
+
+    <div>
+        <label for="u-uf">UF</label>
+        <input [(ngModel)]="user.uf" id="u-uf" name="u-uf" type="text">
+    </div>
+</div>

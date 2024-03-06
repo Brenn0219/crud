@@ -49,16 +49,6 @@
     color: white;
 }
 
-.anddress {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.anddress div {
-    width: 100%;
-}
-
 .active {
     display: flex; 
 }

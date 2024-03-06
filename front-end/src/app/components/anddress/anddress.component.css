@@ -1,0 +1,25 @@
+.anddress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.anddress div {
+    width: 100%;
+}
+
+div label {
+    font-size: 14px;
+    width: 100%;
+}
+
+div input {
+    width: 100%;
+    outline: none;
+    padding: 5px 10px; 
+    width: 100%;
+    margin-bottom: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

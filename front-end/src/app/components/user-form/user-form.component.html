@@ -2,35 +2,13 @@
     <div class="modal">
         <form>
             <label for="u-nome">Nome</label>
-            <input [(ngModel)]="newUser.name" id="u-nome" name="u-nome" type="text" required/>
+            <input [(ngModel)]="user.name" id="u-nome" name="u-nome" type="text" required/>
 
             <label for="u-email">E-mail</label>
-            <input [(ngModel)]="newUser.email" id="u-email" name="u-email" type="email" required/>
+            <input [(ngModel)]="user.email" id="u-email" name="u-email" type="email" required/>
 
-            <div class="anddress">
-                <div>
-                    <label for="u-cep">CEP</label>
-                    <input [(ngModel)]="newUser.cep" id="u-cep" name="u-cep" type="number" required />
-                </div>
+            <app-anddress [user]="user"></app-anddress>
 
-                <div>
-                    <label for="u-lougradouro">Lougradouro</label>
-                    <input type="text" name="u-lougradouro" id="u-lougradouro">
-                </div>
-            </div>
-
-            <div class="anddress">
-                <div>
-                    <label for="u-bairro">Bairro</label>
-                    <input type="text" name="u-bairro" id="u-bairro">
-                </div>
-
-                <div>
-                    <label for="u-uf">UF</label>
-                    <input type="text" name="u-uf" id="u-uf">
-                </div>
-            </div>
-            
             <button id="btnSalvar" (click)="performUserAction()">Salvar</button>
         </form>
     </div>

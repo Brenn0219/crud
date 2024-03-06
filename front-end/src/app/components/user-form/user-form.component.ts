@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../User';
 import { SharedService } from '../../services/shared.service';
@@ -11,7 +11,15 @@ import { SharedService } from '../../services/shared.service';
 export class UserFormComponent implements OnInit {
   isModalActive: boolean = false;
   action: string = ''; 
-  newUser: User = { name: '', email: '', cep: 0, id: 0 }
+  @Output() user: User = {
+    id: 0,
+    name: '',
+    email: '',
+    cep: '',
+    publicPlace: '',
+    neighborhood: '',
+    uf: ''
+  };
 
   constructor(private userService: UserService, private sharedService: SharedService) { }
 
@@ -27,7 +35,7 @@ export class UserFormComponent implements OnInit {
     if (this.action === 'update') {
       this.sharedService.getUserForUpdate().subscribe(user => {
         if (user) {
-          this.newUser = user;
+          this.user = user;
         }
       });
     }
@@ -44,19 +52,19 @@ export class UserFormComponent implements OnInit {
   }
 
   createUser(): void {
-    this.userService.createUser(this.newUser).subscribe(() => {
+    this.userService.createUser(this.user).subscribe(() => {
       this.clearFormAndCloseModal();
     });
   }
 
   updateUser(): void {
-    this.userService.updateUser(this.newUser).subscribe(() => {
+    this.userService.updateUser(this.user).subscribe(() => {
       this.clearFormAndCloseModal();
     });
   }
 
   private clearFormAndCloseModal(): void {
-    this.newUser = { name: '', email: '', cep: 0, id: 0 };
+    this.user = { id: 0, name: '', email: '', cep: '', publicPlace: '', neighborhood: '', uf: ''};
     this.isModalActive = false;
   }
 }
