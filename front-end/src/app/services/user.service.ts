@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 import { User } from '../User';
 
 @Injectable({
@@ -8,6 +8,7 @@ import { User } from '../User';
 })
 export class UserService {
   private apiUrl = 'https://localhost:7149/api/User';
+  private userDataChanged: Subject<void> = new Subject<void>();
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +28,13 @@ export class UserService {
   deleteUser(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  emitUserDataChanged(): void {
+    this.userDataChanged.next();
+  }
+
+  getUserDataChanged(): Observable<void> {
+    return this.userDataChanged.asObservable();
   }
 }

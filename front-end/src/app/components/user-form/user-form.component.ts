@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../User';
 import { SharedService } from '../../services/shared.service';
@@ -54,12 +54,14 @@ export class UserFormComponent implements OnInit {
   createUser(): void {
     this.userService.createUser(this.user).subscribe(() => {
       this.clearFormAndCloseModal();
+      this.userService.emitUserDataChanged();
     });
   }
 
   updateUser(): void {
     this.userService.updateUser(this.user).subscribe(() => {
       this.clearFormAndCloseModal();
+      this.userService.emitUserDataChanged();
     });
   }
 

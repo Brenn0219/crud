@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../User';
 import { SharedService } from '../../services/shared.service';
@@ -8,12 +8,17 @@ import { SharedService } from '../../services/shared.service';
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   users: User[] = []
   user!: User
 
-  constructor(private userService: UserService, private sharedService: SharedService) {
+  constructor(private userService: UserService, private sharedService: SharedService) { }
+
+  ngOnInit(): void {
     this.getUsers();
+    this.userService.getUserDataChanged().subscribe(() => {
+      this.getUsers();
+    });
   }
 
   getUsers(): void {
