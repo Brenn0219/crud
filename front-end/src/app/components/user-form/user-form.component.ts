@@ -21,6 +21,11 @@ export class UserFormComponent implements OnInit {
     uf: ''
   };
 
+  formErrors = {
+    name: false,
+    email: false,
+  };
+
   constructor(private userService: UserService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
@@ -44,11 +49,35 @@ export class UserFormComponent implements OnInit {
   }
 
   performUserAction(): void {
-    if (this.action === 'create') {
-      this.createUser();
-    } else if (this.action === 'update') {
-      this.updateUser();
+    if (this.validateUserData()) {
+      if (this.action === 'create') {
+        this.createUser();
+      } else if (this.action === 'update') {
+        this.updateUser();
+      }
+    } 
+  }
+
+  validateUserData(): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expressão regular para validar o email
+
+    let isValid = true;
+
+    if (!this.user.name.trim()) {
+        this.formErrors.name = true;
+        isValid = false;
+    } else {
+        this.formErrors.name = false;
     }
+
+    if (!this.user.email.trim().match(emailPattern)) {
+        this.formErrors.email = true;
+        isValid = false;
+    } else {
+        this.formErrors.email = false;
+    }
+
+    return isValid;
   }
 
   createUser(): void {

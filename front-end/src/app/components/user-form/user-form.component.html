@@ -4,11 +4,19 @@
             <label for="u-nome">Nome</label>
             <input [(ngModel)]="user.name" id="u-nome" name="u-nome" type="text" required/>
 
+            <div *ngIf="formErrors.name" class="error-message">
+                Por favor, preencha o nome.
+            </div>
+
             <label for="u-email">E-mail</label>
             <input [(ngModel)]="user.email" id="u-email" name="u-email" type="email" required/>
 
-            <app-anddress [user]="user"></app-anddress>
+            <div *ngIf="formErrors.email" class="error-message">
+                Por favor, insira um e-mail válido.
+            </div>
 
+            <app-anddress [user]="user"></app-anddress>
+            
             <button id="btnSalvar" (click)="performUserAction()">Salvar</button>
         </form>
     </div>

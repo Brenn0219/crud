@@ -1,7 +1,11 @@
 <div class="anddress">
     <div>
         <label for="u-cep">CEP</label>
-        <input [(ngModel)]="user.cep" id="u-cep" name="u-cep" type="text" required  (blur)="onCepChanged(user.cep)"/>
+        <input [(ngModel)]="user.cep" id="u-cep" name="u-cep" type="text" (blur)="onCepChanged(user.cep)"/>
+
+        <div *ngIf="showError" class="error-message text-small">
+            Por favor, insira um CEP válido.
+        </div>
     </div>
 
     <div>

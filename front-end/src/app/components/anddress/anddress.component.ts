@@ -9,6 +9,7 @@ import { User } from '../../User';
 })
 export class AnddressComponent {    
   @Input() user!: User;
+  showError: boolean = false;
 
   constructor(private addressService: AddressService) {}
 
@@ -19,17 +20,20 @@ export class AnddressComponent {
           this.user.publicPlace = data.logradouro;
           this.user.neighborhood = data.bairro;
           this.user.uf = data.uf;
+          this.showError = false;
         },
         (error: any) => {
+          this.showError = true;
           console.error('Erro ao buscar dados do endereço:', error);
         }
       );
     } else {
+      this.showError = true;
       console.error('Formato de CEP inválido');
     }
   }
 
-  private isValidCep(cep: string): boolean {
+  isValidCep(cep: string): boolean {
     return cep.length === 8 && /^\d+$/.test(cep);
   }
 }
