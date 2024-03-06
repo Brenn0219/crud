@@ -14,5 +14,11 @@ namespace crud.Models
         
         [Required]
         public int CEP {get; set;} 
-    }
+
+        public string? PublicPlace {get; set;}
+
+        public string? Neighborhood {get; set;}
+
+        public string? Uf {get; set;}
+    }   
 }

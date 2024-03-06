@@ -22,6 +22,9 @@ namespace crud.Contexts
             builder.Entity<User>().Property(u => u.Name).IsRequired().HasMaxLength(30);
             builder.Entity<User>().Property(u => u.Email).IsRequired().HasMaxLength(50);
             builder.Entity<User>().Property(u => u.CEP).IsRequired();
+            builder.Entity<User>().Property(u => u.PublicPlace).HasMaxLength(30);
+            builder.Entity<User>().Property(u => u.Neighborhood).HasMaxLength(30);
+            builder.Entity<User>().Property(u => u.Uf).HasMaxLength(2);
         }
     }
 }
