@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { IncludeButtonComponent } from './components/include-button/include-button.component';
 import { TableComponent } from './components/table/table.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { AnddressComponent } from './components/anddress/anddress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IncludeButtonComponent,
     TableComponent,
-    UserFormComponent
+    UserFormComponent,
+    AnddressComponent
   ],
   imports: [
     BrowserModule,

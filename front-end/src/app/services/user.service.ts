@@ -8,7 +8,6 @@ import { User } from '../User';
 })
 export class UserService {
   private apiUrl = 'https://localhost:7149/api/User';
-  private userIdCounter = 1;
 
   constructor(private http: HttpClient) { }
 
