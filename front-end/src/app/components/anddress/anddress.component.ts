@@ -22,14 +22,12 @@ export class AnddressComponent {
           this.user.uf = data.uf;
           this.showError = false;
         },
-        (error: any) => {
+        () => {
           this.showError = true;
-          console.error('Erro ao buscar dados do endereço:', error);
         }
       );
     } else {
       this.showError = true;
-      console.error('Formato de CEP inválido');
     }
   }
 
