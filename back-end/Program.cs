@@ -13,7 +13,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(sg => {
+    sg.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Cadastro de Usuário", Version = "v1" });
+});
 
 var app = builder.Build();
 
@@ -21,7 +23,9 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(sg => {
+        sg.SwaggerEndpoint("/swagger/v1/swagger.json", "Cadastro de Usuário V1");
+    });
 }
 
 app.UseCors(options =>
