@@ -1,27 +1,51 @@
-# FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Este projeto Frontend foi desenvolvido em Angular e tem como objetivo fornecer uma interface para cadastro de usuários.
 
-## Development server
+## Instruções de Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para executar o projeto Frontend, é necessário possuir o Node.js instalado na máquina. Em seguida, instale o Angular CLI globalmente utilizando o seguinte comando:
 
-## Code scaffolding
+```
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Após a instalação do Angular CLI, navegue até o diretório do projeto e execute o seguinte comando para instalar as dependências:
 
-## Build
+```
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Execução do Projeto
 
-## Running unit tests
+Para iniciar o servidor de desenvolvimento e executar o projeto Angular, utilize o seguinte comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+ng serve
+```
 
-## Running end-to-end tests
+O projeto estará disponível em `http://localhost:<port>/`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Componentes
 
-## Further help
+O projeto possui uma estrutura de componentes. Destacam-se os seguintes componentes:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `UserFormComponent`: Responsável pelo formulário de cadastro e edição de usuários.
+- `TableComponent`: Exibe uma tabela com a lista de usuários cadastrados.
+
+## Serviços e Integrações
+
+O projeto consome uma API externa para obtenção de informações de CEP. Utilizando o serviço `UserService`, as requisições para o backend são gerenciadas, enquanto o `SharedService` facilita a comunicação entre os diferentes componentes da aplicação.
+
+### Acessando o webservice de CEP
+
+Para acessar o webservice de CEP, é necessário fornecer um CEP válido no formato de 8 dígitos, seguido pelo tipo de retorno desejado (json ou xml). Por exemplo:
+
+```
+https://viacep.com.br/ws/<CEP>/json/
+```
+
+### Validação do CEP
+
+Antes de acessar o webservice, é importante validar o formato do CEP para garantir que possui 8 dígitos. Caso contrário, o código de retorno da consulta será um 400 (Bad Request). Além disso, ao consultar um CEP válido, porém inexistente, o retorno conterá um valor de "erro" igual a "true".
+
+Para mais detalhes sobre os formatos de retorno e exemplos de acesso ao webservice, consulte a documentação oficial em [viacep.com.br](https://viacep.com.br/).
