@@ -63,7 +63,9 @@ namespace crud.Controllers
         {
             await _userService.CreateUserAsync(user);
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+            string token = Guid.NewGuid().ToString();
+
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, new {token});
         }
 
         [HttpDelete("{id}")]
